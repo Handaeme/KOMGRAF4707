@@ -20,6 +20,7 @@ public class matriks{
         System.out.println("Pengurangan Matriks");
         printArray(hasilkurang);
 
+        //Perkalian Matriks
         int[][] matriks_c = {
             {1,2},
             {3,4},
@@ -29,9 +30,20 @@ public class matriks{
             {13,14},
         }; 
         int[][] hasilKali = kali(matriks_c, matriks_d);
+        System.out.println("Perkalian Matriks");
+        printArray(matriks_c);
+        printArray(matriks_d);
         printArray(hasilKali);
+
+        //Perkalian Skalar
+        System.out.println("Perkalian Skalar");
+        int skalar = 2;
+        int[][] hasilSkalar = skalar(matriks_c, skalar);
+        printArray(matriks_c);
+        printArray(hasilSkalar);
     }
 
+    //Penambahan Matriks
     private static int[][] tambah(int[][] dataArray_a, int[][] dataArray_b){
         int baris_a = dataArray_a.length;
         int kolom_a = dataArray_a.length;
@@ -52,6 +64,7 @@ public class matriks{
         return hasil;
     }
 
+    //Pengurangan Matriks
     private static int[][] kurang(int[][] dataArray_a, int[][] dataArray_b){
 
         int baris_a = dataArray_a.length;
@@ -72,6 +85,7 @@ public class matriks{
         return hasil;
     }
 
+    //Perkalian Matriks
     private static int[][] kali(int[][] dataArray_1, int[][] dataArray_2){
         int baris_1 = dataArray_1.length;
         int kolom_1 = dataArray_1[0].length;
@@ -90,6 +104,21 @@ public class matriks{
                     buffer += dataArray_1[i][k] * dataArray_2[k][j];
                 }
                 hasil[i][j] = buffer; 
+            }
+        }
+        return hasil;
+    }
+
+    //Perkalian Matriks Skalar
+    private static int[][] skalar(int[][] dataArray_a, int skalar){
+        int baris = dataArray_a.length;
+        int kolom = dataArray_a[0].length;
+
+        int hasil[][] = new int[baris][kolom];
+
+        for(int i = 0; i < baris; i++){
+            for(int j = 0; j < kolom; j++){
+                hasil[i][j] = dataArray_a[i][j] * skalar;
             }
         }
         return hasil;
